@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import java.util.List;
 import java.util.Map;
 
+
 @Controller //java에서 service와 html에 변수명을 주고 받는 공간
 public class IndexController {
     @Autowired
