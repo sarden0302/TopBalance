@@ -15,7 +15,7 @@ public class TodaysLuck {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int index;
-    private Enum cardType;
+    private CardType cardType;
     private int cardNumber;
     private String cardResult;
 }

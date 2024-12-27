@@ -5,8 +5,10 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.*;
+import org.springframework.format.annotation.DateTimeFormat;
 
-import java.text.DateFormat;
+import java.util.Date;
+
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -19,5 +21,5 @@ public class Bamboo {
     private int index;
     private String userId;
     private String comment;
-    private DateFormat commentDate;
+    private Date commentDate;
 }

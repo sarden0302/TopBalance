@@ -8,4 +8,17 @@
     <select id="getAllBalanceQs" >
         SELECT * FROM BALANCEQ
     </select>
+
+    <select id="getBalanceQuestion">
+        SELECT problem
+        FROM balanceq
+        WHERE question_number =#{questionNumber}
+    </select>
+
+    <select id="getScores">
+        SELECT score_s, score_c, score_h, score_d
+        FROM balanceq
+        WHERE answer = #{answer}
+    </select>
+
 </mapper>

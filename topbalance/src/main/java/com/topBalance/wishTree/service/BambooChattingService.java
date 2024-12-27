@@ -1,5 +1,9 @@
 package com.topBalance.wishTree.service;
 
+import com.topBalance.wishTree.dto.BalanceQ;
+import com.topBalance.wishTree.dto.Bamboo;
+
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -10,4 +14,7 @@ public interface BambooChattingService {
 
     // 모든 유저 보기 기능
     List<Map<String, Object>> getAllBambooChattings();
+
+
+    Date test();
 }

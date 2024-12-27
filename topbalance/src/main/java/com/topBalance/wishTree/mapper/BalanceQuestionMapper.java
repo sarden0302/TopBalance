@@ -8,4 +8,6 @@ import java.util.List;
 @Mapper
 public interface BalanceQuestionMapper {
     List<BalanceQ> getAllBalanceQs();
+
+    List<Integer> getScores(String answer);
 }

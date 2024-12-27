@@ -15,7 +15,7 @@ public class TodaysLunch {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int index;
-    private Enum lunchMax;
-    private Enum lunchMin;
+    private CardType lunchMax;
+    private CardType lunchMin;
     private String lunchResult;
 }

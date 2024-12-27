@@ -4,22 +4,56 @@
     <meta charset="UTF-8"/>
     <title>MDCOMPANY - BAMBOO</title>
     <link rel="stylesheet" href="/css/styles.css"/>
+    <style>
+        .bamboo-body {
+            background-image : url('../static/images/tree.png');
+            background-size : cover;
+
+        }
+
+        .bamboo-container {
+
+        }
+
+        .bamboo-texts-division {
+            display : flex;
+        }
+
+        .bamboo-texts-userId {
+            font-size : 8px;
+        }
+
+        .bamboo-texts-commentDate {
+            font-size : 8px;
+        }
+
+        .bamboo-texts-comment {
+            width : 300px;
+            height : 100px;
+            background-color: chartreuse;
+            border-radius : 30px;
+        }
+    </style>
 </head>
-<body>
-<th:block th:replace="layout/header :: header"></th:block>
+<body class="bamboo-body">
+<th:block th:replace="~{layout/header :: header}"></th:block>
 
 <div class="bamboo-container">
-    <h1>메인 화면</h1>
-    <div>
-        <table>
-            <tr th:each="b:${bamboos}">
-                <td th:text="${b.userId}"></td>
-                <td th:text="${b.comment}"></td>
-                <td th:text="${b.commentDate}"></td>
-            </tr>
-        </table>
-    </div>
+    <table>
+        <tr th:each="b:${bamboos}">
+            <div class="bamboo-texts-division">
+                <td th:text="${b.userId}" class="bamboo-texts-userId"></td>
+                <td th:text="${b.commentDate}" class="bamboo-texts-commentDate"></td>
+                <td th:text="${b.comment}" class="bamboo-texts-comment"></td>
+            </div>
+        </tr>
+    </table>
+    <form action="">
+        <label>
+            <input type="text">
+        </label>
+        <button type="submit">작성</button>
+    </form>
 </div>
-<th:block th:replace="layout/footer :: footer"></th:block>
 </body>
 </html>
