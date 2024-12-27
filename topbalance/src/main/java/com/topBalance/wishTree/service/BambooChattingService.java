@@ -15,6 +15,7 @@ public interface BambooChattingService {
     // 모든 유저 보기 기능
     List<Map<String, Object>> getAllBambooChattings();
 
+    void updatingBamboo(String userId, String newbamboo);
 
     Date test();
 }

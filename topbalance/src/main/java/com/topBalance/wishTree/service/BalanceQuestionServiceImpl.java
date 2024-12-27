@@ -81,8 +81,7 @@ public class BalanceQuestionServiceImpl implements BalanceQuestionService{
 
             // 질문 번호에 해당하는 질문 찾기
             BalanceQ selectedQuestion = questions.stream()
-                    .filter(q -> q.getAnswerLeft().equals(entry.getValue()))
-                    .filter(q -> q.getQuestionNumber() == questionNumber)
+                    .filter(q -> q.getAnswerLeft().equals(entry.getValue()) && q.getQuestionNumber() == questionNumber)
                     .findFirst()
                     .orElse(null); // 질문이 없으면 null 반환
 

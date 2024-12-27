@@ -37,6 +37,17 @@ public class BambooChattingServiceImpl implements BambooChattingService {
     }
 
     @Override
+    public void updatingBamboo(String userId, String newbamboo) {
+        List<Bamboo> BambooList = bambooChattingMapper.getAllBamboos();
+
+        if (BambooList.size() == 10) {
+            bambooChattingMapper.deleteRecentBamboo();
+        }
+        Bamboo bamboo = new Bamboo(userId, newbamboo);
+        bambooChattingMapper.insertBamboo(bamboo);
+    }
+
+    @Override
     public Date test() {
         return bambooChattingMapper.test();
     }

@@ -7,6 +7,7 @@ import jakarta.persistence.Id;
 import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 
@@ -22,4 +23,10 @@ public class Bamboo {
     private String userId;
     private String comment;
     private Date commentDate;
+
+    public Bamboo(String userId, String comment) {
+        this.userId = userId;
+        this.comment = comment;
+        this.commentDate = new Date();
+    }
 }

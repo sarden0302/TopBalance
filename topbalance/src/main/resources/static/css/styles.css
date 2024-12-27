@@ -174,7 +174,7 @@ body {
 
 /********************************************* BALANCE ******************************************************************/
 
-.balance-container  .progress-bar {
+.balance-container .progress-bar {
     margin: 30px auto;
     width: 80%;
     background-color: #f3f3f3;
@@ -234,72 +234,4 @@ body {
 
 .balance-container .answer-options {
     margin-top: 20px;
-}
-
-
-
-
-
-
-/*********************************************RESULT ******************************************************************/
-
-.result-container {
-    max-width: 500px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #fefefe;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
-
-.result-container .card-container {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 20px;
-}
-
-.result-container .card {
-    width: 100px;
-    height: 140px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 5px;
-}
-
-.result-container .card img {
-    width: 70px;
-    height: auto;
-    margin-bottom: 5px;
-}
-
-.result-container .card span {
-    font-size: 14px;
-    font-weight: bold;
-}
-
-.result-container .card p {
-    margin: 0;
-    font-size: 12px;
-}
-
-@media (max-width: 768px) {
-    .result-container {
-        max-width: 100%;
-        padding: 16px;
-    }
-
-    .result-container h1 {
-        font-size: 20px;
-    }
-
-    .result-container p {
-        font-size: 16px;
-    }
 }

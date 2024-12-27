@@ -6,12 +6,13 @@
     <link rel="stylesheet" href="/css/styles.css"/>
     <style>
         .bamboo-body {
-            background-image : url('../static/images/tree.png');
+            background-image : url('/images/tree.png');
             background-size : cover;
 
         }
 
         .bamboo-container {
+
 
         }
 
@@ -48,9 +49,12 @@
             </div>
         </tr>
     </table>
-    <form action="">
+    <form action="/insert-bamboo" method="post">
         <label>
-            <input type="text">
+            <input type="text" name="userId">
+        </label>
+        <label>
+            <input type="text" name="newbamboo">
         </label>
         <button type="submit">작성</button>
     </form>

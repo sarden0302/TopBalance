@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Date;
 import java.util.List;
@@ -29,9 +30,12 @@ public class BambooController {
         return "bamboo";
     }
 
-    @PostMapping("/bamboo-change")
-    public String bambooChange(Model model, Bamboo bamboo) {
+    @PostMapping("/insert-bamboo")
+    public String bambooChange(@RequestParam("userId") String userId,
+                               @RequestParam("newbamboo") String newbamboo,
+                               Model model) {
+        bambooChattingService.updatingBamboo(userId, newbamboo);
 
-        return "bamboo";
+        return bamboo(model);
     }
 }

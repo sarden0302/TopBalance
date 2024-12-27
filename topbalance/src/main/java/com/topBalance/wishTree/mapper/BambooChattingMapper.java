@@ -11,5 +11,9 @@ import java.util.List;
 public interface BambooChattingMapper {
     List<Bamboo> getAllBamboos();
 
+    void insertBamboo(Bamboo bamboo);
+
+    void deleteRecentBamboo();
+
     Date test();
 }
