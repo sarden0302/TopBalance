@@ -12,7 +12,7 @@
         }
 
         .bamboo-container {
-
+            position: relative;
 
         }
 
@@ -30,9 +30,53 @@
 
         .bamboo-texts-comment {
             width : 300px;
-            height : 100px;
-            background-color: chartreuse;
+            height : 80px;
+            background-color: lightgreen;
+            color : white;
+            padding : 10px;
             border-radius : 30px;
+            box-shadow : 0 5px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        .bamboo-container table tr:nth-child(2n) td {
+            position : relative;
+            left : 340px;
+        }
+
+        .bamboo-container table tr:nth-child(2n + 1) td {
+            position : relative;
+            right: 340px;
+        }
+
+        .bamboo-container-form input {
+            width : 500px;
+            height : 50px;
+            background-color: #f3f3f3;
+            border-color: lightgreen;
+            border-radius : 10px;
+            margin-top : 20px;
+        }
+
+        .bamboo-container-form input:focus {
+            background-color: #eef4ff;
+        }
+
+        .bamboo-container-form button {
+            width : 100px;
+            height : 50px;
+            background-color: antiquewhite;
+            border-radius: 10px;
+            color : darkolivegreen;
+            border :none;
+            margin-top : 20px;
+        }
+
+        .bamboo-container-form button:hover {
+            cursor: pointer;
+            background-color: burlywood;
+            color : white;
+            font-weight: bold;
+            font-size : 12px;
         }
     </style>
 </head>
@@ -43,21 +87,19 @@
     <table>
         <tr th:each="b:${bamboos}">
             <div class="bamboo-texts-division">
-                <td th:text="${b.userId}" class="bamboo-texts-userId"></td>
-                <td th:text="${b.commentDate}" class="bamboo-texts-commentDate"></td>
                 <td th:text="${b.comment}" class="bamboo-texts-comment"></td>
+                <td th:text="${b.userId}" class="bamboo-texts-userId"></td>
             </div>
         </tr>
     </table>
-    <form action="/insert-bamboo" method="post">
-        <label>
-            <input type="text" name="userId">
-        </label>
-        <label>
-            <input type="text" name="newbamboo">
-        </label>
-        <button type="submit">작성</button>
-    </form>
+    <th:block th:unless="${loggedInUser == null}">
+        <form action="/insert-bamboo" method="post" class="bamboo-container-form">
+            <label>
+                <input type="text" name="newbamboo">
+            </label>
+            <button type="submit">작성</button>
+        </form>
+    </th:block>
 </div>
 </body>
 </html>

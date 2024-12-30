@@ -17,9 +17,10 @@
                 <td th:text="${s.cloverScore}"></td>
                 <td th:text="${s.heartScore}"></td>
                 <td th:text="${s.diamondScore}"></td>
-
             </tr>
         </table>
+        <img th:src="${tree}" alt="Image description"></img>
+
     </div>
 </div>
 <th:block th:replace="~{layout/footer :: footer}"></th:block>

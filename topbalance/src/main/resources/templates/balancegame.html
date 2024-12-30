@@ -12,7 +12,7 @@
     <div class="progress-bar-fill" id="progress-bar-fill"></div>
 </div>
 <div class="balance-container">
-    <form id="balance-game-form" th:action="@{/calculatinggamescore}" method="post">
+    <form id="balance-game-form" th:action="@{/gameresult}" method="post">
         <div th:each="entry,iter : ${groupedQuestions.entrySet()}" th:object="${entry}" class="question hidden">
             <h3>
                 <span th:text="${entry.key} + ' 번 '"></span>

@@ -40,20 +40,23 @@ public class BalanceGameController {
      * 완료 후 gameresult로 값을 보내준다.
      * @return
      */
-    @PostMapping("calculatinggamescore")
+    @PostMapping("/gameresult")
     public String calculatingGameScore(@RequestParam Map<String, String> userAnswers, Model model) {
+        // game score 점수 적용
         balanceQuestionService.calculatingScores(userAnswers, gamescores);
         model.addAttribute("gamescores", gamescores);
-        System.out.println("calculation : " + gamescores.toString());
 
+        // 카드 값 변동
+        balanceQuestionService.changingCardNumber(gamescores);
+
+        Logger log = LoggerFactory.getLogger(BalanceGameController.class);
+        log.info(gamescores.toString());
+
+        //경로 변동
+        String tree = "/images/tree.png";
+        model.addAttribute("tree", tree);
+        String spadename = "/images/trump/S" + gamescores.getSpadeScore() + ".png";
         return "gameresult";
     }
 
-    // 예비 출력구분 -> 점수 제대로 적용됐는지 확인 구분
-    @GetMapping("/gameresult")
-    public void gameResult(Model model) {
-        Logger log = LoggerFactory.getLogger(BalanceGameController.class);
-        //int spade = gamescores.getSpadeScore()
-        log.info("gameresult : " + gamescores.toString());
-    }
 }

@@ -12,4 +12,5 @@ public interface BalanceQuestionService {
     Map<Integer, List<BalanceQ>> getGroupedQuestions();
 
     void calculatingScores(Map<String, String> userAnswers, GameScores gameScores);
+
 }
