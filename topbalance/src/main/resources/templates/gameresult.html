@@ -1,28 +1,197 @@
 <!DOCTYPE html>
-<html xml:th="http://www.thymeleaf.org" lang="ko">
+<html lang="en">
 <head>
-    <meta charset="UTF-8"/>
-    <title>MDCOMPANY - Balance Game</title>
-    <link rel="stylesheet" href="/css/styles.css"/>
+    <meta charset="UTF-8" />
+    <title>TOPBALANCE - 게임 결과</title>
+    <style>
+        .result-container {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            max-width: 500px;
+            width: 100%;
+            background-color: hsl(56, 100%, 92%);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-sizing: border-box;
+            position: relative;
+        }
+        .total-luck {
+            width: 80%;
+            flex-direction: column;
+            height: 100px;
+            text-align: center;
+            border: 1px solid black;
+            border-radius: 15px;
+            background-color: white;
+            margin: auto;
+        }
+        .total-luck p {
+            font-size: 30px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .result-container a {
+            margin: auto;
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+        }
+        .result-container a:hover {
+            color: orangered;
+        }
+
+        .trump {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .trump img {
+            margin: 13px;
+            width: 80px;
+            height: 100px;
+        }
+
+        .trump p {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        /*.trump-luck p {*/
+        /*    margin: 0px 30px;*/
+        /*    text-align: center;*/
+        /*    font-weight: bold;*/
+        /*}*/
+
+
+        .luck-sentence {
+            margin: auto;
+            font-weight: bold;
+            width: 80%;
+            height: 100%;
+            flex-direction: column;
+            text-align: left;
+            border: 1px solid black;
+            border-radius: 15px;
+            background-color: white;
+        }
+        .luck-sentence h3 {
+            text-align: center;
+        }
+
+        .lucky-menu {
+            margin: auto;
+            font-weight: bold;
+            width: 80%;
+            height: 100%;
+            flex-direction: column;
+            text-align: left;
+            border: 1px solid black;
+            border-radius: 15px;
+            background-color: white;
+            text-align: center;
+        }
+
+        .lucky-menu img {
+            width: 160px;
+            height: 130px;
+        }
+
+        .wishinput {
+            text-align: center;
+            margin: auto;
+        }
+        .wishinput input {
+            display: flex;
+            border-radius: 15px;
+            margin-right: 5px;
+            background-color: lightgray;
+            width: 300px;
+            height: 30px;
+            border: none;
+        }
+        .wishinput img {
+            width: 15px;
+            height: 15px;
+        }
+        .wishinput label {
+            display: flex;
+        }
+    </style>
 </head>
 <body>
-<th:block th:replace="~{layout/header :: header}"></th:block>
 
-<div class="gameresult-container">
-    <h1>메인 화면</h1>
-    <div>
-        <table>
-            <tr th:each="s:${gamescores}">
-                <td th:text="${s.spadeScore}"></td>
-                <td th:text="${s.cloverScore}"></td>
-                <td th:text="${s.heartScore}"></td>
-                <td th:text="${s.diamondScore}"></td>
-            </tr>
-        </table>
-        <img th:src="${tree}" alt="Image description"></img>
+<div class="result-container">
 
+    <div class="total-luck">
+        <p>행운지수 :</p><p th:text="${totalScore}"></p>
     </div>
+
+    <br />
+
+    <div class="trump">
+
+        <img th:src="${cardPath.cloverPath}">
+        <p>건강운</p>
+        <p th:text="${categoryScore.cloverScore}"></p>
+        <img th:src="${cardPath.diamondPath}">
+        <p>재물운</p>
+        <p th:text="${categoryScore.diamondScore}"></p>
+        <img th:src="${cardPath.spadePath }">
+        <p>학업운</p>
+        <p th:text="${categoryScore.spadeScore}"></p>
+        <img th:src="${cardPath.heartPath}">
+        <p>연애운</p>
+        <p th:text="${categoryScore.heartScore}"></p>
+    </div>
+    <hr />
+
+    <div class="luck-sentence">
+        <p>오늘의 건강운 : </p>
+        <p th:text="${categoryResult.cloverResult}"></p>
+        <p>오늘의 재물운 :</p>
+        <p th:text="${categoryResult.diamondResult}"></p>
+        <p>오늘의 학업운 :</p>
+        <p th:text="${categoryResult.spadeResult}"></p>
+        <p>오늘의 연애운 : </p>
+        <p th:text="${categoryResult.heartResult}"></p>
+    </div>
+
+    <hr />
+    <div class="lucky-menu">
+        <h3>오늘의 추천메뉴</h3>
+        <p th:text="${todaysLunch}"></p>
+        <!--<img th:src="${}">-->
+    </div>
+
+
+    <hr />
+
+    <form class="wishinput" action="/insertWish" method="post" onsubmit="return showAlert();">
+        <label>
+            <input
+                    type="text"
+                    maxlength="100"
+                    placeholder="소원나무에 소원을 작성해 보세요!"
+                    name="userWish"
+                    required
+            />
+            <button type="submit">
+                <img src="../02_CSS/image/Group.png" />
+            </button>
+        </label>
+    </form>
+    <hr />
+    <a href="/bamboo">댓글 보러가기</a>
+    <hr />
+
+
+    <script>
+        function showAlert(){
+            alert("You wish has been delivered.");
+            return true;
+        }
+    </script>
 </div>
-<th:block th:replace="~{layout/footer :: footer}"></th:block>
 </body>
 </html>
