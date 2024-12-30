@@ -48,8 +48,13 @@ public class BalanceGameController {
 
     /**
      * balancegame.html에서 유저가 선택한 answer를 통해 실질적인 GameScore를 변동하는 곳
-     * 완료 후 gameresult로 값을 보내준다.
-     * @return
+     * 1. 총점
+     * 2. 각 카드 점수별 이미지 주소
+     * 3. 각 카드별 점수
+     * 4. 각 카드별 해당 DB값
+     * 5. MAX CardType, MIN CardType 에 따른 점심 메뉴 추천
+     * 을 model 에 넣고
+     * @return gameresult 로 랜더링한다.
      */
     @PostMapping("/gameresult")
     public String gameResult(@RequestParam Map<String, String> userAnswers, Model model) {
@@ -67,8 +72,11 @@ public class BalanceGameController {
         // 카드 max, min 찾아서 점심 값 넣기
         CardType MAX = gameResultService.getMaxCategory(gamescores);
         CardType MIN = gameResultService.getMinCategory(gamescores);
-        String todaysLunch = gameResultService.todaysLunch(CardType.SPADE, CardType.HEART);
+        String todaysLunch = gameResultService.todaysLunch(MAX, MIN);
         model.addAttribute("todaysLunch", todaysLunch);
+        // MAX 와 MIN에 따른 점심메뉴 받기
+        String lunchPath = gameResultService.getTodaysLunchPath(MAX, MIN);
+        model.addAttribute("lunchPath", lunchPath);
 
         // 각 카드 값 변동
         gameResultService.changingCardNumber(gamescores);
@@ -80,10 +88,6 @@ public class BalanceGameController {
         // 트럼프 이미지 경로 model에 넣기
         Map<String, Object> cardPath = gameResultService.balanceTrump(gamescores);
         model.addAttribute("cardPath", cardPath);
-
-        //s,c,h,d 별 운세 문장 출력
-
-
 
 
         return "gameresult";
