@@ -74,28 +74,23 @@ public class BalanceGameController {
         CardType MIN = gameResultService.getMinCategory(gamescores);
         String todaysLunch = gameResultService.todaysLunch(MAX, MIN);
         model.addAttribute("todaysLunch", todaysLunch);
-        // MAX 와 MIN에 따른 점심메뉴 받기
+        // MAX 와 MIN에 따른 점심메뉴 이미지 경로 찾기 및 model에 넣기
         String lunchPath = gameResultService.getTodaysLunchPath(MAX, MIN);
         model.addAttribute("lunchPath", lunchPath);
 
         // 각 카드 값 변동
         gameResultService.changingCardNumber(gamescores);
 
-        // 각 카테고리 점수별 운세 결과 DB적용 및 model에 입력
-        Map<String, Object> categoryResult = gameResultService.getCategoryResult(gamescores);
-        model.addAttribute("categoryResult", categoryResult);
-
         // 트럼프 이미지 경로 model에 넣기
         Map<String, Object> cardPath = gameResultService.balanceTrump(gamescores);
         model.addAttribute("cardPath", cardPath);
 
+        // 각 카테고리 점수별 운세 결과 DB적용 및 model에 입력
+        Map<String, Object> categoryResult = gameResultService.getCategoryResult(gamescores);
+        model.addAttribute("categoryResult", categoryResult);
 
         return "gameresult";
     }
-
-
-
-
 
     @PostMapping("/insertWish")
     public String insertWish(@RequestParam String userWish , Model model, HttpSession session) {
