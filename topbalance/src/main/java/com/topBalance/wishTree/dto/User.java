@@ -1,32 +1,31 @@
 package com.topBalance.wishTree.dto;
-// javax -> jakarta
 
-import jakarta.persistence.Id;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import org.springframework.data.annotation.Id;
+import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
-
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
+@ToString
 public class User {
 
     @Id // primary key
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String userId;
     private String userPassword;
     private String userName;
     private String userPhone;
-    private String userBirthdate;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date userBirthdate;
     private String userGender;
     private int ranking;
     private int totalScore;
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private Date Game_date;
+    private Date gameDate;
     private int dailyVisit;
 }

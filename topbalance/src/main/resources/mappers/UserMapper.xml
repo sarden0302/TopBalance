@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- java 어떤 파일에 sql 문을 보낼지 경로 설정
+    namespace 내에 mapper경로 작성-->
+<mapper namespace="com.topBalance.wishTree.mapper.UserMapper">
+    <!-- sql 문을 보낼 때 보낼 표기명 id에 작성-->
+    <select id="getAllUsers" >
+        SELECT * FROM USER
+    </select>
+
+    <insert id="insertUser">
+        INSERT INTO user (user_id, user_password, user_name, user_phone, user_birthdate, user_gender, ranking, total_score, game_date, daily_vist)
+        VALUES
+            (#{userId},#{userPassword},#{userName},#{userPhone},#{userBirthdate},#{userGender},#{ranking},#{totalScore},#{gameDate},#{dailyVisit})
+    </insert>
+
+
+    <!-- 로그인-->
+    <select id="login">
+        SELECT *
+        FROM USER
+        WHERE user_id = #{userId}
+          and user_password = #{userPassword}
+            LIMIT 1
+    </select>
+
+
+    <!--정보수정-->
+    <update id="updateUser">
+
+        UPDATE user
+        SET
+            user_password = #{userPassword},
+            user_name = #{userName},
+            user_phone = #{userPhone},
+            user_birthdate = #{userBirthdate},
+            user_gender = #{userGender}
+        Where user_id = #{userId}
+
+
+    </update>
+    <!--정보전체조회-->
+    <select id="getUser">
+        SELECT *
+        FROM USER
+        WHERE USER_ID = #{userId}
+    </select>
+    <!--비밀번호찾기-->
+    <select id="findByPassword">
+        SELECT USER_PASSWORD
+        FROM USER
+        WHERE user_id = #{userId}
+          AND user_phone = #{userphone}
+    </select>
+
+    <!--아이디를 이름, 핸드폰번호, 생년월일로 찾기-->
+    <select id="findById">
+        SELECT user_id
+        FROM USER
+        WHERE user_name = #{username}
+          AND user_phone = #{userPhone}
+          AND user_birthdate = #{userBirthdate}
+    </select>
+
+    <select id="findUserById">
+        SELECT *
+        FROM USER
+        WHERE user_id = #{userId}
+    </select>
+
+
+
+</mapper>

@@ -235,3 +235,94 @@ body {
 .balance-container .answer-options {
     margin-top: 20px;
 }
+
+/*******************************register********************************************/
+h1{
+    text-align: center;
+}
+a {
+    text-decoration: none;
+    color: #333333;
+    font-size: 13px;
+}
+
+.login-content,
+.register-content,
+.mypage-content
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    text-align: center;
+}
+
+.register-container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    max-width: 500px;
+    width: 100%;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    position: relative;
+}
+.register-content
+
+.radioClick:focus-within {
+    color: dodgerblue;
+}
+/***************************************마이페이지***************************************/
+
+.mypage-container{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    max-width: 500px;
+    width: 100%;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    position: relative;
+}
+
+.mypage-content
+
+    /***************************************파인더***********************************************/
+.find-container{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    max-width: 500px;
+    width: 100%;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    position: relative;
+}
+/********************************************로그인*******************************************/
+.login-container{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    max-width: 500px;
+    width: 100%;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    position: relative;
+}
+
+.login-content a {
+    padding: 6px 10px;
+    border: none;
+    border-radius: 3px;
+    background-color: #777777;
+    cursor: pointer;
+}
+.login-content a:hover {
+    background-color: #333333;
+    color: white;
+}

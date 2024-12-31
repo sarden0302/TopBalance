@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xml:th="http://www.thymeleaf.org" lang="ko">
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>WISHTREE - UPDATE</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <script src="/js/script.js" defer></script>
+</head>
+<body>
+<!-- Main Content -->
+<div class="register-container">
+  <!-- Header -->
+  <th:block th:replace="~{layout/header :: header}"></th:block>
+  <h1>회원정보수정</h1>
+  <form action="/update-success" method="post" class="register-content">
+
+    <label for="userId">아이디</label>
+    <input type="text" id="userId" name="userId" th:value="${user.userId}" readonly>
+
+    <label for="userPassword">비밀번호</label>
+    <input type="password" id="userPassword" name="userPassword" th:value="${user.userPassword}" required>
+
+    <label for="userName">이름</label>
+    <input type="text" id="userName" name="userName" th:value="${user.userName}" required>
+
+    <label for="userPhone">핸드폰번호</label>
+    <input type="text" id="userPhone" name="userPhone" th:value="${user.userPhone}" required>
+
+    <label for="userBirthdate">생년월일</label>
+    <input type="Date" id="userBirthdate" name="userBirthdate" th:value="${user.userBirthdate}"  required>
+
+    <label>성별</label>
+    <label for="male" class="radioClick">
+      <input type="radio" id="male" name="userGender" value="MALE" th:checked="${user.userGender == 'MALE' }">남성
+    </label>
+    <label for="female" class="radioClick">
+      <input type="radio" id="female" name="userGender" value="FEMALE" th:checked="${user.userGender == 'FEMALE' }">여성
+    </label>
+
+    <button type="submit">수정완료</button>
+
+
+  </form>
+
+
+  <th:block th:replace="~{layout/footer :: footer}"></th:block>
+</div>
+<script src="../static/js/wishtreeUserRegExp.js"></script>
+<!-- Footer -->
+</body>
+</html>
