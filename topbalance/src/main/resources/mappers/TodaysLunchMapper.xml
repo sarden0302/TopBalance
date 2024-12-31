@@ -7,7 +7,7 @@
         SELECT LUNCH_RESULT
         FROM TODAYSLUNCH
         WHERE LUNCH_MAX = #{lunchMax}
-          AND LUNCH_MIN = #{lunchMin};
+        AND LUNCH_MIN = #{lunchMin}
 
     </select>
 

@@ -28,4 +28,8 @@ public class User {
     private int totalScore;
     private Date gameDate;
     private int dailyVisit;
+
+    public String getUserId() {
+        return userId;
+    }
 }

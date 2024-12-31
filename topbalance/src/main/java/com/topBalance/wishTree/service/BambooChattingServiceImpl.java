@@ -2,6 +2,7 @@ package com.topBalance.wishTree.service;
 
 import com.topBalance.wishTree.dto.BalanceQ;
 import com.topBalance.wishTree.dto.Bamboo;
+import com.topBalance.wishTree.dto.User;
 import com.topBalance.wishTree.mapper.BambooChattingMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -37,13 +38,13 @@ public class BambooChattingServiceImpl implements BambooChattingService {
     }
 
     @Override
-    public void updatingBamboo(String userId, String newbamboo) {
+    public void updatingBamboo(User user, String newbamboo) {
         List<Bamboo> BambooList = bambooChattingMapper.getAllBamboos();
 
         if (BambooList.size() == 10) {
             bambooChattingMapper.deleteRecentBamboo();
         }
-        Bamboo bamboo = new Bamboo(userId, newbamboo);
+        Bamboo bamboo = new Bamboo(user.getUserId(), newbamboo);
         bambooChattingMapper.insertBamboo(bamboo);
     }
 

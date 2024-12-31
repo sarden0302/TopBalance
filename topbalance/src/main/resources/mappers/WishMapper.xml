@@ -14,7 +14,7 @@
         FROM wishtree
         WHERE user_wish IS NOT NULL
         ORDER BY wish_date DESC
-            LIMIT 7;
+        LIMIT 7
     </select>
 
 

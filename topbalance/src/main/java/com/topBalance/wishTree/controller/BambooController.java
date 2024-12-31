@@ -2,6 +2,7 @@ package com.topBalance.wishTree.controller;
 
 import com.topBalance.wishTree.dto.BalanceQ;
 import com.topBalance.wishTree.dto.Bamboo;
+import com.topBalance.wishTree.dto.User;
 import com.topBalance.wishTree.service.BambooChattingService;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,13 +39,15 @@ public class BambooController {
     }
 
     @PostMapping("/insert-bamboo")
-    public String bambooChange(@RequestParam("userId") String userId,
-                               @RequestParam("newbamboo") String newbamboo,
+    public String bambooChange(@RequestParam("newbamboo") String newbamboo,
                                Model model,
                                HttpSession session) {
-        bambooChattingService.updatingBamboo(userId, newbamboo);
-
-        return bamboo(model, session);
+        Object loggedInUser = session.getAttribute("loggedInUser");
+        if (loggedInUser != null) {
+            bambooChattingService.updatingBamboo((User)loggedInUser, newbamboo);
+            return bamboo(model, session);
+        }
+        return "redirect:/bamboo";
     }
 
     @ModelAttribute("loggedInUser")

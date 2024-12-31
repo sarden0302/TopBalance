@@ -10,17 +10,17 @@
     </select>
 
     <select id="test">
-        SELECT NOW() FROM dual;
+        SELECT NOW() FROM dual
     </select>
 
     <insert id="insertBamboo">
-        INSERT INTO bamboo (user_id, comment, comment_date) values(#{userId}, #{comment}, NOW());
+        INSERT INTO bamboo (user_id, comment, comment_date) values(#{userId}, #{comment}, NOW())
     </insert>
 
     <delete id="deleteRecentBamboo">
         DELETE FROM bamboo
         ORDER BY comment_date
-        LIMIT 1;
+        LIMIT 1
     </delete>
 
 

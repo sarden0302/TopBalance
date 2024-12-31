@@ -59,8 +59,8 @@
         SELECT user_id
         FROM USER
         WHERE user_name = #{username}
-          AND user_phone = #{userPhone}
-          AND user_birthdate = #{userBirthdate}
+        AND user_phone = #{userPhone}
+        AND user_birthdate = #{userBirthdate}
     </select>
 
     <select id="findUserById">

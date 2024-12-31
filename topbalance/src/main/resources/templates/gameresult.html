@@ -120,6 +120,7 @@
     </style>
 </head>
 <body>
+<th:block th:replace="~{layout/header :: header}"></th:block>
 
 <div class="result-container">
 
@@ -168,20 +169,23 @@
 
     <hr />
 
-    <form class="wishinput" action="/insertWish" method="post" onsubmit="return showAlert();">
-        <label>
-            <input
-                    type="text"
-                    maxlength="100"
-                    placeholder="소원나무에 소원을 작성해 보세요!"
-                    name="userWish"
-                    required
-            />
-            <button type="submit">
-                <img src="../02_CSS/image/Group.png" />
-            </button>
-        </label>
-    </form>
+    <th:block th:unless="${loggedInUser == null}">
+
+        <form class="wishinput" action="/insertWish" method="post" onsubmit="return showAlert();">
+            <label>
+                <input
+                        type="text"
+                        maxlength="100"
+                        placeholder="소원나무에 소원을 작성해 보세요!"
+                        name="userWish"
+                        required
+                />
+                <button type="submit">
+                    <img src="/images/Group.png" />
+                </button>
+            </label>
+        </form>
+    </th:block>
     <hr />
     <a href="/bamboo">댓글 보러가기</a>
     <hr />
