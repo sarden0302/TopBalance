@@ -69,6 +69,12 @@
         WHERE user_id = #{userId}
     </select>
 
+    <update id="updatingTotalScore">
+        UPDATE USER
+        SET total_score = #{totalScore}
+        WHERE user_id = #{userId}
+    </update>
+
 
 
 </mapper>

@@ -66,16 +66,22 @@ public class BalanceGameController {
     public String gameResult(@RequestParam Map<String, String> userAnswers,
                              Model model,
                              HttpSession session) {
+        // session에서 로그인 정보 가져오기. header에 유저 정보를 담기 위해
         Object loggedInUser = addLoggedInUser(session);
         if (loggedInUser != null) {
             model.addAttribute("loggedInUser", loggedInUser);
         }
+
         // 선택한 목록에 따른 s, c, h, d 점수 변동
         balanceQuestionService.calculatingScores(userAnswers, gamescores);
 
         // total 점수 구현 및 model 에 데이터 입력
         int totalScore = gameResultService.totalScore(gamescores);
         model.addAttribute("totalScore", totalScore);
+        // user가 로그인 되어있을 시 totalScore update하기
+        if (loggedInUser != null) {
+            gameResultService.updatingTotalScore((User)loggedInUser, totalScore);
+        }
 
         // 게임 결과 점수 각 category에 입력하고 model에 입력
         Map<String, Object> categoryScore = gameResultService.getOldCardScores(gamescores);

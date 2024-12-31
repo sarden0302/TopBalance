@@ -49,4 +49,6 @@ public interface UserMapper {
 
     User findUserById(String userId);
 
+    void updatingTotalScore(int totalScore, String userId);
+
 }

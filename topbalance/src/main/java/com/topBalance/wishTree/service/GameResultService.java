@@ -1,6 +1,7 @@
 package com.topBalance.wishTree.service;
 
 import com.topBalance.wishTree.dto.CardType;
+import com.topBalance.wishTree.dto.User;
 import com.topBalance.wishTree.vo.GameScores;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -35,4 +36,6 @@ public interface GameResultService {
     CardType getMinCategory(GameScores gameScores);
 
     String getTodaysLunchPath(CardType MAX, CardType MIN);
+
+    void updatingTotalScore(User loggedInUser, int totalScore);
 }
