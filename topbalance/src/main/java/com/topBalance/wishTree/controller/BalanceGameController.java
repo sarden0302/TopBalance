@@ -73,8 +73,6 @@ public class BalanceGameController {
         Logger log = LoggerFactory.getLogger(BalanceGameController.class);
         log.info(userAnswers.toString());
         if (userAnswers.isEmpty()) {
-
-
             return "error/balance-game-error";
         }
 

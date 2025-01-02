@@ -2,6 +2,8 @@ package com.topBalance.wishTree.service;
 
 import com.topBalance.wishTree.dto.User;
 import com.topBalance.wishTree.mapper.UserMapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -61,5 +63,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public User findUserById(String userId) {
         return userMapper.findUserById(userId);
+    }
+
+    @Override
+    public User findByIdUser(String userId) {
+        return userMapper.findUserByIdUser(userId);
     }
 }

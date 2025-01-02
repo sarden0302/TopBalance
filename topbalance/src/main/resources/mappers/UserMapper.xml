@@ -76,6 +76,13 @@
         WHERE user_id = #{userId}
     </update>
 
+    <select id="findUserByIdUser">
+        SELECT *
+        FROM USER
+        WHERE user_id = #{userId}
+        LIMIT 1
+    </select>
+
 
 
 </mapper>

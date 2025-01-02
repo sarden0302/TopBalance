@@ -18,16 +18,24 @@
   <H1>회원가입</H1>
   <form action="/register-success" method="post" id="checkRegExp" class="register-content">
     <label for="userId">아이디</label>
-    <input type="text" id="userId" name="userId" required maxlength="20" minlength="4">
+    <input type="text" id="userId" name="userId" onblur="ExpcheckId(event)" required>
+    <p id="id_result"></p>
+    <button id="checkidButton" type="button">중복 확인</button>
     <br><br>
     <label for="userPassword">비밀번호</label>
-    <input type="password" id="userPassword" name="userPassword" required minlength="8">
+    <input type="password" id="userPassword" name="userPassword" required>
+    <p id="pwResult1"></p>
+    <label for="userRepeatPassword">비밀번호확인</label>
+    <input type="password" id="userRepeatPassword" name="userRepeatPassword" onblur="checkingPw(event)">
+    <p id="pwResult2"></p>
     <br><br>
     <label for="userName">이름</label>
-    <input type="text" id="userName" name="userName" required minlength="2">
+    <input type="text" id="userName" name="userName" required>
+    <p id="nameResult"></p>
     <br><br>
     <label for="userPhone">핸드폰번호</label>
-    <input type="text" id="userPhone" name="userPhone" required>
+    <input type="text" id="userPhone" name="userPhone" placeholder="010-XXXX-XXXX" required>
+    <p id="phoneResult"></p>
     <br><br>
     <label for="userBirthdate">생년월일</label>
     <input type="Date" id="userBirthdate" name="userBirthdate" required>
@@ -48,7 +56,7 @@
   <!-- Footer -->
   <th:block th:replace="~{layout/footer :: footer}"></th:block>
 </div>
-<script src="../static/js/wishtreeUserRegExp.js"></script>
+<script src="/js/wishtreeUserRegExp.js"></script>
 
 </body>
 </html>
