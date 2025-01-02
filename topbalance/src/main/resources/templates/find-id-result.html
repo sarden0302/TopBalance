@@ -12,13 +12,15 @@
 <div class="find-container">
   <!-- Header -->
   <th:block th:replace="~{layout/header :: header}"></th:block>
-  <h1>아이디 확인 결과</h1>
-  <p th:text="${userId != null and !userId.isEmpty()
-                ? '입력하신 이름과 확인한 결과 : ' + userId.userName
+  <div class="find-content">
+    <h1>아이디 확인 결과</h1>
+    <p th:text="${userId != null and !userId.isEmpty()
+                ? '입력하신 이름과 핸드폰번호와 생년월일을 확인한 결과 : ' + userId
                 :'조회된 회원이 없습니다.' }">
-  </p>
-  <a href="/">메인으로 돌아가기</a>
-
+    </p>
+    <br>
+    <a href="/">메인으로 돌아가기</a>
+  </div>
   <!-- Footer -->
   <th:block th:replace="~{layout/footer :: footer}"></th:block>
 </div>

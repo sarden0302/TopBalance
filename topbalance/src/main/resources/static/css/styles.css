@@ -237,18 +237,9 @@ body {
 }
 
 /*******************************register********************************************/
-h1{
-    text-align: center;
-}
-a {
-    text-decoration: none;
-    color: #333333;
-    font-size: 13px;
-}
 
-.login-content,
-.register-content,
-.mypage-content
+
+.register-content
 {
     display: flex;
     flex-direction: column;
@@ -257,7 +248,23 @@ a {
     flex: 1;
     text-align: center;
 }
-
+.register-content a{
+    text-decoration: none;
+    color: #333333;
+    font-size: 13px;
+    padding: 6px 10px;
+    border: none;
+    border-radius: 3px;
+    background-color: #777777;
+    cursor: pointer;
+}
+.register-content a:hover {
+    background-color: #333333;
+    color: white;
+}
+.register-content h1{
+    text-align: center;
+}
 .register-container {
     display: flex;
     flex-direction: column;
@@ -287,10 +294,37 @@ a {
     box-sizing: border-box;
     position: relative;
 }
+.mypage-content a {
+    text-decoration: none;
+    color: #333333;
+    font-size: 13px;
+    padding: 6px 10px;
+    border: none;
+    border-radius: 3px;
+    background-color: #777777;
+    cursor: pointer;
+}
+.mypage-content a:hover {
+    background-color: #333333;
+    color: white;
+}
+.mypage-container h1{
+    text-align: center;
+}
+.mypage-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    text-align: center;
+}
 
-.mypage-content
 
-    /***************************************파인더***********************************************/
+
+
+/***************************************파인더***********************************************/
+
 .find-container{
     display: flex;
     flex-direction: column;
@@ -302,6 +336,25 @@ a {
     box-sizing: border-box;
     position: relative;
 }
+
+.find-content a {
+    text-decoration: none;
+    color: #333333;
+    font-size: 13px;
+    padding: 6px 10px;
+    border: none;
+    border-radius: 3px;
+    background-color: #777777;
+    cursor: pointer;
+}
+.find-content a:hover {
+    background-color: #333333;
+    color: white;
+}
+.find-container h1{
+    text-align: center;
+}
+
 /********************************************로그인*******************************************/
 .login-container{
     display: flex;
@@ -316,13 +369,70 @@ a {
 }
 
 .login-content a {
+    text-decoration: none;
+    color: #333333;
+    font-size: 13px;
     padding: 6px 10px;
     border: none;
     border-radius: 3px;
     background-color: #777777;
     cursor: pointer;
 }
+
 .login-content a:hover {
     background-color: #333333;
     color: white;
+}
+
+.login-container h1{
+    text-align: center;
+}
+
+.login-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    text-align: center;
+
+}
+
+/******************************************비밀번호, 아이디 찾기 ****************************************/
+.find-container{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    max-width: 500px;
+    width: 100%;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    position: relative;
+}
+.find-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    text-align: center;
+}
+
+.find-content a {
+    text-decoration: none;
+    color: #333333;
+    font-size: 13px;
+    padding: 6px 10px;
+    border: none;
+    border-radius: 3px;
+    background-color: #777777;
+    cursor: pointer;
+}
+.find-content a:hover {
+    background-color: #333333;
+    color: white;
+}
+.find-container h1{
+    text-align: center;
 }

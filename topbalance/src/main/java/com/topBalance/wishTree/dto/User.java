@@ -29,7 +29,9 @@ public class User {
     private Date gameDate;
     private int dailyVisit;
 
-    public String getUserId() {
-        return userId;
+    public User(String userName, String userPhone, Date userBirthdate) {
+        this.userName = userName;
+        this.userPhone = userPhone;
+        this.userBirthdate = userBirthdate;
     }
 }

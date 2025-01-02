@@ -14,10 +14,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;
@@ -62,7 +59,8 @@ public class BalanceGameController {
      * 을 model 에 넣고
      * @return gameresult 로 랜더링한다.
      */
-    @PostMapping("/gameresult")
+    //@PostMapping("/gameresult")
+    @RequestMapping(value="/gameresult", method = {RequestMethod.GET, RequestMethod.POST})
     public String gameResult(@RequestParam Map<String, String> userAnswers,
                              Model model,
                              HttpSession session) {
@@ -70,6 +68,14 @@ public class BalanceGameController {
         Object loggedInUser = addLoggedInUser(session);
         if (loggedInUser != null) {
             model.addAttribute("loggedInUser", loggedInUser);
+        }
+
+        Logger log = LoggerFactory.getLogger(BalanceGameController.class);
+        log.info(userAnswers.toString());
+        if (userAnswers.isEmpty()) {
+
+
+            return "error/balance-game-error";
         }
 
         // 선택한 목록에 따른 s, c, h, d 점수 변동

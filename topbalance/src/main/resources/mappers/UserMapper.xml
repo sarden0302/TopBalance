@@ -9,6 +9,7 @@
         SELECT * FROM USER
     </select>
 
+    <!-- 회원가입-->
     <insert id="insertUser">
         INSERT INTO user (user_id, user_password, user_name, user_phone, user_birthdate, user_gender, ranking, total_score, game_date, daily_vist)
         VALUES
@@ -51,7 +52,7 @@
         SELECT USER_PASSWORD
         FROM USER
         WHERE user_id = #{userId}
-          AND user_phone = #{userphone}
+        AND user_phone = #{userphone}
     </select>
 
     <!--아이디를 이름, 핸드폰번호, 생년월일로 찾기-->

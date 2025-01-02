@@ -6,6 +6,7 @@ import com.topBalance.wishTree.service.UserService;
 import com.topBalance.wishTree.service.WishService;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -111,7 +112,7 @@ public class IndexController {
     @GetMapping("/logout")
     public Object logout(HttpSession session) {
         session.invalidate();
-        session.getAttribute("loggedOutUser");
+        //session.getAttribute("loggedOutUser");
         return "redirect:/";
     }
 
@@ -159,32 +160,32 @@ public class IndexController {
 
     @GetMapping("/find-password")
     public String findByPassword() {
-
         return "find-password";
     }
 
 
     @GetMapping("/find-password-result")
-    public String findByPassword(@RequestParam String userId,
-                                 @RequestParam String userPhone,
+    public String findByPassword(@RequestParam("userId") String userId,
+                                 @RequestParam("userPhone") String userPhone,
                                  Model model) {
-        String password = userService.findByPassword(userId, userPhone);
-        model.addAttribute("password", password);
+        String userPassword = userService.findByPassword(userId, userPhone);
+        model.addAttribute("userPassword", userPassword);
         return "find-password-result";
     }
 
     @GetMapping("/find-id")
-    public String findById(String userName, String userPhone, Date userBirthdate) {
+    public String findById() {
         return "find-id";
     }
 
     @GetMapping("/find-id-result")
-    public String findById(@RequestParam String userName,
-                           @RequestParam String userPhone,
-                           @RequestParam Date userBirthdate,
+    public String findById(@RequestParam("userName") String userName,
+                           @RequestParam("userPhone") String userPhone,
+                           @DateTimeFormat(pattern = "yyyy-MM-dd") Date userBirthdate,
                            Model model) {
         String findID = userService.findById(userName, userPhone, userBirthdate);
         model.addAttribute("userId", findID);
         return "find-id-result";
     }
+
 }
