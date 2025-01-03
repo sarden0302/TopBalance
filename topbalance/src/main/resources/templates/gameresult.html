@@ -3,11 +3,15 @@
 <head>
     <meta charset="UTF-8" />
     <title>TOPBALANCE - 게임 결과</title>
+    <link rel="stylesheet" href="/css/styles.css"/>
+    <script src="/js/script.js" defer></script>
     <style>
         .result-container {
             display: flex;
             flex-direction: column;
-            flex: 1;
+            justify-content: center;
+            align-items: center;
+            text-align : center;
             max-width: 500px;
             width: 100%;
             background-color: hsl(41.16deg 100% 88.69% / 98%);
@@ -134,109 +138,108 @@
     </style>
 </head>
 <body>
+    <th:block th:replace="~{layout/header :: header}"></th:block>
+    <div class="result-container">
 
-<div class="result-container">
+        <div class="total-luck">
+            <p>행운지수 : <p th:text="${totalScore}"></p></p>
+        </div>
+        <br />
+        <!--    <div class="trump">-->
+        <!--           <img th:src="${cardPath.cloverPath}">-->
+        <!--           <img th:src="${cardPath.diamondPath}">-->
+        <!--           <img th:src="${cardPath.spadePath }">-->
+        <!--           <img th:src="${cardPath.heartPath}">-->
 
-    <div class="total-luck">
-        <p>행운지수 : <p th:text="${totalScore}"></p></p>
+        <!--        <span>건강운</span>-->
+        <!--        <span th:text="${categoryScore.cloverScore}"></span>-->
+        <!--        <span>재물운</span>-->
+        <!--        <span th:text="${categoryScore.diamondScore}"></span>-->
+        <!--        <span>학업운</span>-->
+        <!--        <span th:text="${categoryScore.spadeScore}"></span>-->
+        <!--        <span>연애운</span>-->
+        <!--        <span th:text="${categoryScore.heartScore}"></span>-->
+
+        <!--    </div>-->
+        <div class="trump">
+            <div class="card">
+                <img th:src="${cardPath.cloverPath}">
+                <span>건강운</span>
+                <span th:text="${categoryScore.cloverScore}"></span>
+            </div>
+            <div class="card">
+                <img th:src="${cardPath.diamondPath}">
+                <span>재물운</span>
+                <span th:text="${categoryScore.diamondScore}"></span>
+            </div>
+            <div class="card">
+                <img th:src="${cardPath.spadePath}">
+                <span>학업운</span>
+                <span th:text="${categoryScore.spadeScore}"></span>
+            </div>
+            <div class="card">
+                <img th:src="${cardPath.heartPath}">
+                <span>연애운</span>
+                <span th:text="${categoryScore.heartScore}"></span>
+            </div>
+        </div>
+        <hr />
+
+        <div class="luck-sentence">
+            <div class="luck-text">
+                <span>▷ 오늘의 건강운 : </span>
+                <span th:text="${categoryResult.cloverResult}"></span>
+                <br><br>
+                <span>▷ 오늘의 재물운 :</span>
+                <span th:text="${categoryResult.diamondResult}"></span>
+                <br><br>
+                <span>▷ 오늘의 학업운 :</span>
+                <span th:text="${categoryResult.spadeResult}"></span>
+                <br><br>
+                <span>▷ 오늘의 연애운 : </span>
+                <span th:text="${categoryResult.heartResult}"></span>
+                <br><br>
+            </div>
+        </div>
+
+        <div class="lucky-menu">
+            <h2>오늘의 추천메뉴</h2>
+            <br>
+            <img th:src="${lunchPath}">
+            <p th:text="${todaysLunch}"></p>
+            <br>
+        </div>
+
+
+        <hr />
+
+        <th:block th:unless="${loggedInUser == null}">
+            <form class="wishinput" action="/insertWish" method="post" onsubmit="return showAlert();">
+                <label>
+                    <input
+                            type="text"
+                            maxlength="100"
+                            placeholder="소원나무에 소원을 작성해 보세요!"
+                            name="userWish"
+                            required
+                    />
+                    <button type="submit">
+                        <img src="/images/Group.png" />
+                    </button>
+                </label>
+            </form>
+        </th:block>
+        <hr />
+        <a href="/bamboo">댓글 보러가기</a>
+        <hr />
+
+
+        <script>
+            function showAlert(){
+                alert("You wish has been delivered.");
+                return true;
+            }
+        </script>
     </div>
-    <br />
-    <!--    <div class="trump">-->
-    <!--           <img th:src="${cardPath.cloverPath}">-->
-    <!--           <img th:src="${cardPath.diamondPath}">-->
-    <!--           <img th:src="${cardPath.spadePath }">-->
-    <!--           <img th:src="${cardPath.heartPath}">-->
-
-    <!--        <span>건강운</span>-->
-    <!--        <span th:text="${categoryScore.cloverScore}"></span>-->
-    <!--        <span>재물운</span>-->
-    <!--        <span th:text="${categoryScore.diamondScore}"></span>-->
-    <!--        <span>학업운</span>-->
-    <!--        <span th:text="${categoryScore.spadeScore}"></span>-->
-    <!--        <span>연애운</span>-->
-    <!--        <span th:text="${categoryScore.heartScore}"></span>-->
-
-    <!--    </div>-->
-    <div class="trump">
-        <div class="card">
-            <img th:src="${cardPath.cloverPath}">
-            <span>건강운</span>
-            <span th:text="${categoryScore.cloverScore}"></span>
-        </div>
-        <div class="card">
-            <img th:src="${cardPath.diamondPath}">
-            <span>재물운</span>
-            <span th:text="${categoryScore.diamondScore}"></span>
-        </div>
-        <div class="card">
-            <img th:src="${cardPath.spadePath}">
-            <span>학업운</span>
-            <span th:text="${categoryScore.spadeScore}"></span>
-        </div>
-        <div class="card">
-            <img th:src="${cardPath.heartPath}">
-            <span>연애운</span>
-            <span th:text="${categoryScore.heartScore}"></span>
-        </div>
-    </div>
-    <hr />
-
-    <div class="luck-sentence">
-        <div class="luck-text">
-            <span>▷ 오늘의 건강운 : </span>
-            <span th:text="${categoryResult.cloverResult}"></span>
-            <br><br>
-            <span>▷ 오늘의 재물운 :</span>
-            <span th:text="${categoryResult.diamondResult}"></span>
-            <br><br>
-            <span>▷ 오늘의 학업운 :</span>
-            <span th:text="${categoryResult.spadeResult}"></span>
-            <br><br>
-            <span>▷ 오늘의 연애운 : </span>
-            <span th:text="${categoryResult.heartResult}"></span>
-            <br><br>
-        </div>
-    </div>
-
-    <div class="lucky-menu">
-        <h2>오늘의 추천메뉴</h2>
-        <br>
-        <img th:src="${lunchPath}">
-        <p th:text="${todaysLunch}"></p>
-        <br>
-    </div>
-
-
-    <hr />
-
-    <th:block th:unless="${loggedInUser == null}">
-
-        <form class="wishinput" action="/insertWish" method="post" onsubmit="return showAlert();">
-            <label>
-                <input
-                        type="text"
-                        maxlength="100"
-                        placeholder="소원나무에 소원을 작성해 보세요!"
-                        name="userWish"
-                        required
-                />
-                <button type="submit">
-                    <img src="/images/Group.png" />
-                </button>
-            </label>
-        </form>
-    </th:block>
-    <hr />
-    <a href="/bamboo">댓글 보러가기</a>
-    <hr />
-
-
-    <script>
-        function showAlert(){
-            alert("You wish has been delivered.");
-            return true;
-        }
-    </script>
-</div>
 </body>
 </html>
