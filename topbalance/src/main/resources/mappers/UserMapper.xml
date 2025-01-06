@@ -76,13 +76,12 @@
         WHERE user_id = #{userId}
     </update>
 
-    <select id="findUserByIdUser">
-        SELECT *
+    <!-- 아이지 중복 체크-->
+    <select id="checkUsers" >
+        SELECT COUNT(*)
         FROM USER
         WHERE user_id = #{userId}
-        LIMIT 1
     </select>
-
 
 
 </mapper>

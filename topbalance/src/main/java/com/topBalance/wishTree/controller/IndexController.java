@@ -4,7 +4,7 @@ import com.topBalance.wishTree.dto.User;
 import com.topBalance.wishTree.service.RankingService;
 import com.topBalance.wishTree.service.UserService;
 import com.topBalance.wishTree.service.WishService;
-import com.topBalance.wishTree.vo.ResponseDto;
+import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 import java.util.Date;
@@ -58,6 +59,16 @@ public class IndexController {
     public String register() {
 
         return "register";
+    }
+
+    // 아이디 중복 확인용
+    @PostMapping("/check-userId")
+    public void checkUsers(@RequestParam("userId") String userId,
+                           HttpServletResponse response)
+            throws IOException {
+        boolean userExists = userService.checkUsers(userId);
+        response.setContentType("application/json");
+        response.getWriter().write("{\"userExists\" : " + userExists + "}");
     }
 
     //가입 성공 페이지
@@ -186,16 +197,4 @@ public class IndexController {
         return "find-id-result";
     }
 
-    @GetMapping("/IDCheck")
-    public @ResponseBody ResponseDto<?> check(String id){
-
-        if(id == null || id.isEmpty()){
-            return new ResponseDto<>(-1,"아이디를 입력해주세요",null);
-        }
-        if (userService.findByIdUser(id) != null){
-            return new ResponseDto<>(1,"동일한 아이디가 존재합니다.", false);
-        }else{
-            return new ResponseDto<>(1,"사용가능한 아이디입니다.", true);
-        }
-    }
 }

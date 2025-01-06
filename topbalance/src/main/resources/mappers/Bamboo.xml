@@ -9,10 +9,6 @@
         SELECT * FROM bamboo
     </select>
 
-    <select id="test">
-        SELECT NOW() FROM dual
-    </select>
-
     <insert id="insertBamboo">
         INSERT INTO bamboo (user_id, comment, comment_date) values(#{userId}, #{comment}, NOW())
     </insert>

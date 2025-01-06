@@ -51,6 +51,6 @@ public interface UserMapper {
 
     void updatingTotalScore(int totalScore, String userId);
 
-    User findUserByIdUser(String userId);
+    int checkUsers(String userId);
 
 }

@@ -64,6 +64,7 @@ public class BalanceGameController {
     public String gameResult(@RequestParam Map<String, String> userAnswers,
                              Model model,
                              HttpSession session) {
+        /*********** 이성호 ***********************/
         // session에서 로그인 정보 가져오기. header에 유저 정보를 담기 위해
         Object loggedInUser = addLoggedInUser(session);
         if (loggedInUser != null) {
@@ -72,6 +73,8 @@ public class BalanceGameController {
 
         Logger log = LoggerFactory.getLogger(BalanceGameController.class);
         log.info(userAnswers.toString());
+
+        // GET 방식으로 바로 접근 시에 userAnswers 가 null인지 확인 후에 error 페이지로 전환합니다.
         if (userAnswers.isEmpty()) {
             return "error/balance-game-error";
         }
@@ -79,6 +82,7 @@ public class BalanceGameController {
         // 선택한 목록에 따른 s, c, h, d 점수 변동
         balanceQuestionService.calculatingScores(userAnswers, gamescores);
 
+        /************ 이다경 **************************/
         // total 점수 구현 및 model 에 데이터 입력
         int totalScore = gameResultService.totalScore(gamescores);
         model.addAttribute("totalScore", totalScore);
@@ -118,19 +122,22 @@ public class BalanceGameController {
     public String insertWish(@RequestParam("userWish") String userWish,
                              Model model,
                              HttpSession session) {
+        // Session 정보를 가져와 header에 영향을 준다
         Object loggedInUser = session.getAttribute("loggedInUser");
         Logger log = LoggerFactory.getLogger(this.getClass());
+
+        // 만약 session에 유저 정보가 담겨 있을 경우 wishtree DB에 update 및 insert 작업을 실행합니다.
         if(loggedInUser != null) {
             log.info(loggedInUser.toString());
-            User user = wishTreeService.getWishTree((User)loggedInUser);
-            WishTree wishTree = new WishTree();// 추후 로그인 연동하면 로그인했을 때 세션으로 가져온 유저아이디로 변경할 것
+            User user = wishTreeService.getWishTree((User)loggedInUser); // Object로 받은 session 정보를 .getWishTree 함수를 사용해 User 객체로 변환
+            WishTree wishTree = new WishTree();
             wishTree.setUserId(user.getUserId());
             wishTree.setUserWish(userWish);
-            wishTreeService.insertWish(wishTree);
-            return "redirect:/"; // 로그인이 안된 상태에서 댓글을 입력할 경우 로그인 페이지로 돌려보내기
+            wishTreeService.insertWish(wishTree); // wishTree에 담은 정보를 가지고 inserWish 함수 실행
+            return "redirect:/"; // insertWish 이후 메인 페이지로 돌아가기.
         }
 
-        return "redirect:/";
+        return "redirect:/"; // 로그인이 안된 상태에서 댓글을 입력할 경우 로그인 페이지로 돌려보내기
     }
 
     @ModelAttribute("loggedInUser")

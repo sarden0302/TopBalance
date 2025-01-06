@@ -66,7 +66,10 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User findByIdUser(String userId) {
-        return userMapper.findUserByIdUser(userId);
+    public boolean checkUsers(String userId) {
+        boolean duplicated = userMapper.checkUsers(userId) > 0;
+        System.out.println("중복확인 : " + duplicated);
+        return duplicated;
     }
+
 }

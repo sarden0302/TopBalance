@@ -28,5 +28,6 @@ public interface UserService {
 
     User findUserById(String userId);
 
-    User findByIdUser(String userId);
+    boolean checkUsers(String userId);
+
 }
