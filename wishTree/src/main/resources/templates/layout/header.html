@@ -1,0 +1,45 @@
+<header th:fragment="header">
+    <div class="navbar">
+        <div class="menu-icon" id="menuIcon" onclick="toggleMenu(true)">&#9776;</div>
+        <div class="logo"><a href="/">Top Balance</a></div>
+        <div class="icons">
+            <span class="search-icon">&#128269;</span>
+            <span class="profile-icon" onclick="location.href='/login'" th:if="${loggedInUser == null}">&#128100;</span>
+            <span class="profile-icon" onclick="location.href='/mypage'"
+                  th:if="${loggedInUser != null}">&#128101;</span>
+        </div>
+    </div>
+    <div class="side-menu" id="sideMenu">
+        <div class="close-icon" onclick="toggleMenu(false)">&times;</div>
+        <ul>
+            <li><a href="/">메인화면</a></li>
+            <li><a href="/balancegame">Start Game</a></li>
+            <li><a href="/bamboo">BAMBOO</a></li>
+            <li><a href="/gameresult">게임 결과</a></li>
+            <li><a href="find-id" th:if="${loggedInUser == null}">아이디 찾기</a></li>
+            <li><a href="find-password" th:if="${loggedInUser == null}">비밀번호 찾기</a></li>
+            <li><a href="/register" th:if="${loggedInUser == null}">회원가입</a></li>
+            <li><a href="/login" th:if="${loggedInUser == null}">로그인</a></li>
+            <li><a href="/mypage" th:if="${loggedInUser != null}">마이페이지</a></li>
+            <li><a href="/logout" th:if="${loggedInUser != null}">로그아웃</a></li>
+        </ul>
+    </div>
+</header>
+
+<!--
+</div>
+  <nav class="header-nav">
+    <a href="/">메인</a>
+    <a href="/find-id">아이디찾기</a>
+    <a href="/find-password">비밀번호찾기</a>
+
+  </nav>
+
+  <div class="sign-in">
+    <a th:if="${loggedInUser == null}" href="/register">login</a>
+    <a th:if="${loggedInUser == null}" href="/login">login</a>
+
+    <a th:if="${loggedInUser != null}" href="/mypage">login</a>
+    <a th:if="${loggedInUser != null}" href="/login">login</a>
+  </div>
+-->

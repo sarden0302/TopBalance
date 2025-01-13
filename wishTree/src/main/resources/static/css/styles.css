@@ -1,0 +1,1273 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f7f5f594;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+
+/* 네비게이션 바 */
+.navbar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 16px;
+    background-color: white;
+    border-bottom: 1px solid #ddd;
+    box-sizing: border-box;
+}
+
+
+.navbar .logo a {
+    font-size: 24px;
+    text-align: center;
+    font-weight: bold;
+    color: black;
+    text-decoration-line: none;
+}
+
+.navbar .logo a:hover {
+    cursor: pointer;
+}
+
+.navbar .logo a:visited {
+    font-size: 24px;
+    text-align: center;
+    font-weight: bold;
+    color: black;
+    text-decoration-line: none;
+}
+
+.navbar .menu-icon {
+    cursor: pointer;
+}
+
+.navbar .profile-icon:hover {
+    cursor: pointer;
+}
+
+.navbar .menu-icon:hover,
+.navbar .close-icon:hover {
+    color: #007bff;
+}
+
+.side-menu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    background-color: #fff;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    transform: translateX(-100%);
+    z-index: 2000;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.side-menu.active {
+    transform: translateX(0);
+    visibility: visible;
+    opacity: 1;
+}
+
+.side-menu .close-icon {
+    font-size: 20px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    color: #333;
+    z-index: 2100;
+}
+
+.side-menu ul {
+    list-style: none;
+    padding: 50px 30px 0;
+    margin: 0;
+}
+
+.side-menu ul li {
+    margin: 10px 0;
+}
+
+.side-menu ul li a {
+    color: #333;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.side-menu ul li a:hover {
+    color: #007bff;
+}
+
+
+.side-menu .close-icon {
+    font-size: 20px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    color: #333;
+    z-index: 2100;
+}
+
+
+.footer {
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+    padding: 16px;
+    font-size: 14px;
+    color: #888;
+    border-top: 1px solid #ddd;
+    background-color: white;
+    box-sizing: border-box;
+    margin-top: auto;
+}
+
+
+/**************************************************************/
+/****************** 아래 추가 css 작성  ***********************/
+/**************************************************************/
+
+/******************************* INDEX ********************************************/
+.main-container {
+    width: 500px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: space-between;
+    background-image: url("../images/mainpage/maintree.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    background-color: white;
+    border: 1px solid #ddd;
+}
+
+
+.main-container .maintext {
+    position: relative;
+    font-size: 48px;
+    font-weight: bold;
+    color: #4A7B2F;
+    text-shadow: -1px -1px 0 #4A7B2F, 3px 3px 5px rgba(0, 0, 0, 0.5);
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: transparent;
+    text-align: center;
+    margin-top: -400px;
+}
+
+
+.main-container .ranklist {
+    padding: 100px;
+    width: 210px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-image: url("../images/mainpage/ranklist.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 250px;
+    right: -350px;
+    border-radius: 20px;
+}
+
+.main-container .ranklist table {
+    width: 100%;
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    border-radius: 10px;
+    margin: 10px 20px;
+    padding: 5px 10px;
+}
+
+.main-container .ranklist table td {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+    padding: 5px;
+    border-radius: 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+
+.main-container .ranklist table td:hover {
+    background-color: #FFD700;
+    color: #fff;
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.main-container .ui-button {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    top: 700px;
+    padding: 0 50px;
+    box-sizing: border-box;
+}
+
+.main-container .ui-button .startgame,
+.main-container .ui-button .gotobamboo {
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #4A7B2F;
+    background-color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: 2px solid #4A7B2F;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.main-container .ui-button .startgame:hover,
+.main-container .ui-button .gotobamboo:hover {
+    background-color: #4A7B2F;
+    color: white;
+    border-color: transparent;
+    transform: scale(1.1);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+}
+
+
+.main-container .wishlist {
+    position: absolute;
+    top: 600px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+
+.main-container .wishlist .circle-container {
+    position: relative;
+    width: 200px;
+    height: 500px;
+    margin: 0 auto;
+}
+
+.main-container .wishlist .circle {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    border: 2px solid #4A7B2F;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.main-container .wishlist .circle:nth-child(1) {
+    top: -200px;
+    left: -60px;
+}
+
+.main-container .wishlist .circle:nth-child(2) {
+    top: -300px;
+    left: 60px;
+}
+
+.main-container .wishlist .circle:nth-child(3) {
+    top: -450px;
+    left: 150px;
+}
+
+.main-container .wishlist .circle:nth-child(4) {
+    top: 0px;
+    left: 0px;
+}
+
+.main-container .wishlist .circle:nth-child(5) {
+    top: -350px;
+    left: 200px;
+}
+.main-container .wishlist .circle:nth-child(6) {
+    top: -400px;
+    left: -50px;
+}
+.main-container .wishlist .circle:nth-child(7) {
+    top: 0px;
+    left: 250px;
+}
+
+
+.main-container .moving-text {
+    position: absolute;
+    white-space: nowrap;
+    animation: move-text 5s linear infinite;
+}
+
+@keyframes move-text {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+.main-container .moving-text span {
+    font-size: 25px;
+    font-weight: bold;
+    color: black;
+}
+
+
+/*******************************register********************************************/
+
+
+.register-container {
+    max-width: 500px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    position: relative;
+    width: 100%;
+    background-color: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.register-container h1 {
+    text-align: center;
+    font-size: 24px;
+    color: #7B4F26;
+}
+
+.register-container .form-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.register-container .form-group label {
+    width: 120px;
+    font-size: 14px;
+    color: #8b847d;
+}
+
+.register-container .form-group input {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #8b847d;
+    border-radius: 5px;
+    font-size: 14px;
+    max-width: 300px;
+    background-color: #ffffff;
+}
+
+.register-container .form-group input:focus {
+    border-color: #7B4F26;
+    box-shadow: 0 0 5px rgba(123, 94, 59, 0.3);
+    outline: none;
+}
+
+.register-container button {
+    width: 50%;
+    padding: 10px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #7B4F26;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin: 0 auto;
+    display: block;
+    text-align: center;
+}
+
+.register-container button:hover {
+    background-color: #5a422e;
+}
+
+.register-container .info-section {
+    margin-top: -10px;
+    margin-bottom: -10px;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.register-container .info-section h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: #7B4F26;
+    text-align: center;
+}
+
+.register-container .info-section p {
+    font-size: 14px;
+    color: #7B4F26;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.register-container .info-section ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    list-style: none;
+    padding-left: 0;
+    gap: 15px;
+}
+
+.register-container .info-section li {
+    width: 45%;
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #5A422E;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+}
+
+.register-container .info-section li::before {
+    content: "🍂";
+    margin-right: 8px;
+    font-size: 18px;
+    color: #7B4F26;
+}
+
+.register-container .info-section li strong {
+    color: #7B4F26;
+    font-weight: bold;
+}
+
+.enabled {
+    color: #4caf50;
+}
+
+.unabled {
+    color: #f44336;
+}
+
+@media (max-width: 768px) {
+    .register-container {
+        max-width: 90%;
+        padding: 15px;
+    }
+
+    .register-container .register-content input,
+    .register-container .register-content button {
+        width: 100%;
+    }
+}
+
+/***************************************마이페이지***************************************/
+
+.mypage-container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    max-width: 500px;
+    width: 100%;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    position: relative;
+}
+
+.mypage-content a {
+    text-decoration: none;
+    color: #333333;
+    font-size: 13px;
+    padding: 6px 10px;
+    border: none;
+    border-radius: 3px;
+    background-color: #777777;
+    cursor: pointer;
+}
+
+.mypage-content a:hover {
+    background-color: #333333;
+    color: white;
+}
+
+.mypage-container h1 {
+    text-align: center;
+}
+
+.mypage-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    text-align: center;
+}
+
+/***************************************파인더***********************************************/
+/******************************************비밀번호, 아이디 찾기 ****************************************/
+
+.find-container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    max-width: 500px;
+    width: 100%;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    position: relative;
+    margin: 0 auto;
+    min-height: 100vh;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.find-container h1 {
+    text-align: center;
+    font-size: 20px;
+    padding: 20px;
+    margin-bottom: 40px;
+}
+
+.find-container p {
+    text-align: center;
+    font-size: 17px;
+    margin-bottom: 40px;
+}
+
+.find-container form {
+    margin-bottom: 70px;
+}
+
+
+.find-container .form-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.find-container .form-group label {
+    width: 100px;
+    font-size: 12px;
+    margin-right: 10px;
+    text-align: right;
+}
+
+.find-container .form-group input {
+    flex: 1;
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 12px;
+}
+
+.find-container .form-group input:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.2);
+}
+
+.find-container button {
+    width: 50%;
+    margin: 30px auto;
+    padding: 8px;
+    font-size: 18px;
+    color: white;
+    background-color: #7b5e3b;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: block;
+}
+
+.find-container button:hover {
+    background-color: #5a422e;
+}
+
+.find-container .link-section {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+
+.find-container .link-section a {
+    display: block;
+    text-decoration: auto;
+    font-size: 18px;
+    color: #7b5e3b;
+    cursor: pointer;
+}
+
+.find-container .link-section a:hover {
+    color: #b18259;
+}
+
+footer {
+    text-align: center;
+    margin-top: auto;
+    font-size: 12px;
+    color: #777;
+    padding: 10px 0;
+}
+
+
+/********************************************로그인*******************************************/
+.login-container {
+    max-width: 500px;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+.login-container h1 {
+    text-align: center;
+    font-size: 24px;
+    color: #333333;
+    margin-bottom: 20px;
+}
+
+.login-container .login-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+}
+
+.login-container .login-content label {
+    font-size: 14px;
+    color: #555555;
+    margin-bottom: 8px;
+    text-align: left;
+    width: 60%;
+}
+
+.login-container .login-content input {
+    width: 90%;
+    max-width: 300px;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #dddddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+.login-container .login-content input:focus {
+    outline: none;
+    border-color: #7B4F26;
+    box-shadow: 0 0 5px rgba(123, 79, 38, 0.3);
+}
+
+.login-container .login-content button {
+    width: 90%;
+    max-width: 300px;
+    padding: 12px;
+    font-size: 16px;
+    color: white;
+    background-color: #7B4F26;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-container .login-content button:hover {
+    background-color: #5E3A1D;
+}
+
+.login-container .login-content a {
+    text-decoration: none;
+    color: #7B4F26;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.login-container .login-content a:hover {
+    color: #5E3A1D;
+}
+
+
+/*
+.login-container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    max-width: 500px;
+    width: 100%;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    position: relative;
+}
+
+.login-content a {
+    text-decoration: none;
+    color: #333333;
+    font-size: 13px;
+    padding: 6px 10px;
+    border: none;
+    border-radius: 3px;
+    background-color: #777777;
+    cursor: pointer;
+}
+
+.login-content a:hover {
+    background-color: #333333;
+    color: white;
+}
+
+.login-container h1 {
+    text-align: center;
+}
+
+.login-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    text-align: center;
+
+}
+*/
+
+
+/********************************************* BALANCE ******************************************************************/
+.balance-container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    position: relative;
+}
+
+.balance-container .progress-bar {
+    margin: 30px auto;
+    width: 80%;
+    background-color: #f3f3f3;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 16px;
+}
+
+.balance-container .progress-bar-fill {
+    height: 20px;
+    background-color: #007bff;
+    width: 0%;
+    transition: width 0.3s ease-in-out;
+}
+
+.balance-container h3 {
+    font-size: 24px;
+    margin: 150px 0 250px;
+    color: #007bff;
+    font-weight: bold;
+    text-align: center;
+}
+
+.balance-container label {
+    display: block;
+    background-color: #f9f9f9;
+    padding: 15px;
+    margin: 8px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-align: center;
+    font-size: 18px;
+}
+
+.balance-container label:hover {
+    background-color: #eef4ff;
+}
+
+.balance-container input[type="radio"] {
+    display: none;
+}
+
+.balance-container input[type="radio"]:checked + span {
+    font-weight: bold;
+    color: #007bff;
+}
+
+.balance-container .hidden {
+    display: none;
+}
+
+.balance-container .question {
+    width: 500px;
+    margin-bottom: 40px;
+}
+
+.balance-container .answer-options {
+    margin-top: 20px;
+}
+
+/********************************************* BAMBOO ******************************************************************/
+
+.bamboo-container {
+    width: 500px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: space-between;
+    background-image: url("../images/mainpage/maintree.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    background-color: white;
+    border: 1px solid #ddd;
+}
+
+.bamboo-leaf-area {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 50px;
+    gap: 20px;
+    top: -400px;
+}
+
+.bamboo-fruit {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2), 0 1px 2px rgba(0, 0, 0, 0.1) inset;
+    color: #4a4a4a;
+    font-size: 10px;
+    text-align: center;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    padding: 5px;
+    animation: float 5s infinite ease-in-out;
+}
+
+.bamboo-fruit .bamboo-texts-comment {
+    font-size: 15px;
+    color: #333;
+    margin-bottom: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.bamboo-fruit .bamboo-texts-userId {
+    font-size: 13px;
+    color: #777;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.bamboo-fruit:nth-child(1) {
+top: -100px;
+    left: 40px;
+}
+
+.bamboo-fruit:nth-child(2) {
+    top: -200px;
+    left: 160px;
+}
+
+.bamboo-fruit:nth-child(3) {
+    top: -350px;
+    left: 250px;
+}
+
+.bamboo-fruit:nth-child(4) {
+    top: 100px;
+    left: 100px;
+}
+
+.bamboo-fruit:nth-child(5) {
+    top: -250px;
+    left: 300px;
+}
+.bamboo-fruit:nth-child(6) {
+    top: -300px;
+    left: 50px;
+}
+.bamboo-fruit:nth-child(7) {
+    top: 100px;
+    left: 350px;
+}
+.bamboo-fruit:nth-child(8) {
+    top:-80px;
+    left: 400px;
+}
+
+.bamboo-fruit:nth-child(9) {
+    top:-50px;
+    left: 160px;
+}
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.bamboo-container-form {
+    position : absolute;
+    top: 880px;
+    left: 10px;
+}
+
+.bamboo-container-input {
+    border: none;
+    border-radius: 80px;
+    background-color: white;
+    width: 395px;
+    height: 50px;
+}
+
+.bamboo-container-button {
+    border-radius : 30px;
+    width : 80px;
+    height : 50px;
+
+}
+
+.bamboo-container-button:hover {
+    cursor : pointer;
+    color : white;
+    background-color: #4A7B2F;
+    border-radius : 30px;
+    width : 80px;
+    height : 50px;
+}
+
+
+/******************************************** GAMERESULT *******************************************/
+
+
+.result-container {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    width: 100%;
+    background-color: hsl(41.16deg 100% 88.69% / 98%);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+
+}
+
+.result-container .total-luck {
+    width: 80%;
+    text-align: center;
+    border: 3px solid black;
+    border-radius: 15px;
+    background-color: white;
+    margin: 20px 40px 20px 45px;
+}
+
+.result-container .total-luck p {
+    font-size: 30px;
+    text-align: center;
+    font-weight: bold;
+    display: inline-block;
+}
+
+.result-container a {
+    margin: auto;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.result-container a:hover {
+    color: orangered;
+}
+
+.result-container .trump {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+.result-container .trump .card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.result-container .trump .card img {
+    margin: 10px 0;
+    width: 80px;
+    height: 110px;
+}
+
+.result-container .trump .card span {
+    margin-top: 5px;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.result-container .luck-sentence {
+    margin: 20px 45px 20px 45px;
+    width: 80%;
+    height: 100%;
+    border: 3px solid black;
+    border-radius: 15px;
+    background-color: white;
+
+}
+
+.result-container .luck-sentence .luck-text {
+    font-weight: bold;
+    font-size: 18px;
+    text-align: left;
+    padding: 30px;
+}
+
+.result-container .lucky-menu {
+    margin: 10px 45px 10px 45px;
+    font-weight: bold;
+    width: 80%;
+    height: 100%;
+    flex-direction: column;
+    border: 3px solid black;
+    border-radius: 15px;
+    background-color: white;
+    text-align: center;
+}
+
+.result-container .lucky-menu img {
+    width: 200px;
+    height: 180px;
+    border-radius: 10px;
+}
+
+.result-container .lucky-menu p {
+    font-size: 20px;
+}
+
+.result-container .wishinput {
+    text-align: center;
+    margin: auto;
+}
+
+.result-container .wishinput input {
+    display: flex;
+    border-radius: 15px;
+    margin-right: 5px;
+    background-color: lightgray;
+    width: 350px;
+    height: 35px;
+    border: none;
+}
+
+.result-container .wishinput img {
+    width: 15px;
+    height: 15px;
+}
+
+.result-container .wishinput label {
+    display: flex;
+}
+
+.result-container .wishinput button {
+    border-radius: 10px;
+    border: 2px gray;
+}
+
+.result-container .luck-sentence .luck-text {
+    margin-outside: 20px;
+}
+
+/************* 반응형 ***************/
+@media (max-width: 768px) {
+    body {
+        padding: 0;
+        margin: 0;
+        font-size: 14px;
+    }
+
+    .navbar {
+        flex-direction: column;
+        padding: 8px;
+    }
+
+    .navbar .logo a {
+        font-size: 20px;
+    }
+
+    .main-container {
+
+        background-image:  url("../images/mainpage/maintree_mobile.png");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+    .main-container {
+        width: 100%;
+    }
+
+    .register-container,
+    .login-container,
+    .find-container,
+    .balance-container,
+    .mypage-container,
+    .result-container {
+        width: 100%;
+        padding: 10px;
+    }
+    .main-container .maintext {
+        font-size: 32px;
+        margin-top: -200px;
+    }
+
+    .main-container .ranklist {
+        top: 200px;
+        right: 10px;
+        width: 80px;
+        height: auto;
+    }
+
+    .main-container .ranklist table td {
+        font-size: 12px;
+    }
+
+    .main-container .ui-button {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .main-container .ui-button .startgame,
+    .main-container .ui-button .gotobamboo {
+        font-size: 16px;
+        padding: 8px 16px;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .register-container,
+    .login-container,
+    .find-container,
+    .balance-container,
+    .mypage-container {
+        max-width: 100%;
+        padding: 10px;
+    }
+
+    .register-container .form-group label,
+    .find-container .form-group label,
+    .login-container .login-content label {
+        width: 100px;
+        font-size: 12px;
+    }
+
+    .register-container .form-group input,
+    .find-container .form-group input,
+    .login-container .login-content input {
+        width: 100%;
+        font-size: 12px;
+        margin-bottom: 8px;
+    }
+
+    .register-container button,
+    .find-container button,
+    .login-container .login-content button {
+        width: 100%;
+        font-size: 14px;
+    }
+
+    .bamboo-container {
+        width: 100%;
+        margin: 0 auto;
+        border: none;
+    }
+
+    .bamboo-container .bamboo-leaf-area {
+        flex-wrap: nowrap;
+        overflow-x: scroll;
+        gap: 10px;
+        top: 0;
+        padding: 10px;
+    }
+
+    .bamboo-container .bamboo-fruit {
+        width: 50px;
+        height: 50px;
+    }
+
+    .result-container {
+        max-width: 100%;
+        margin: 0;
+        padding: 10px;
+    }
+
+    .result-container .total-luck,
+    .result-container .luck-sentence,
+    .result-container .lucky-menu {
+        width: 100%;
+        margin: 10px auto;
+        font-size: 14px;
+    }
+
+    .result-container .trump .card img {
+        width: 60px;
+        height: 80px;
+    }
+
+    .result-container .wishinput input {
+        width: 100%;
+    }
+
+    .result-container .wishinput button {
+        width: 100%;
+        margin-top: 10px;
+    }
+}

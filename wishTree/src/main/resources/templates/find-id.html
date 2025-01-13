@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xml:th="http://www.thymeleaf.org" lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>WISHTREE - FIND ID</title>
+    <link rel="stylesheet" href="/css/styles.css"/>
+    <script src="/js/script.js" defer></script>
+</head>
+<body>
+<div class="find-container">
+    <th:block th:replace="~{layout/header :: header}"></th:block>
+    <div class="find-content">
+        <h1>가입한 아이디 찾기</h1>
+        <p>이름, 핸드폰 번호, 생년월일을 입력하면 <br>가입하신 아이디를 찾아드립니다.</p>
+        <form action="/find-id-result" method="get">
+            <div class="form-group">
+                <label for="userName">이름</label>
+                <input type="text" id="userName" name="userName" required>
+            </div>
+            <div class="form-group">
+                <label for="userPhone">핸드폰번호</label>
+                <input type="text" id="userPhone" name="userPhone" placeholder="ex)010-****-****" required>
+            </div>
+            <div class="form-group">
+                <label for="userBirthdate">생년월일</label>
+                <input type="date" id="userBirthdate" name="userBirthdate" required>
+            </div>
+            <button type="submit">아이디 찾기</button>
+        </form>
+        <div class="link-section">
+            <a href="/">메인페이지로 이동하기</a>
+            <a href="/login">로그인</a>
+            <a href="/find-password">비밀번호찾기</a>
+            <a href="/register">회원가입</a>
+        </div>
+    </div>
+    <th:block th:replace="~{layout/footer :: footer}"></th:block>
+</div>
+<script src="/js/wishtreeUserRegExp.js"></script>
+</body>
+</html>

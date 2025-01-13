@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko" xml:th="http://www.thymeleaf.org">
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>WISHTREE - JOIN SUCCESS</title>
+    <link href="/css/styles.css" rel="stylesheet">
+    <script defer src="/js/script.js"></script>
+</head>
+<body>
+<!-- Header -->
+<!-- Main Content -->
+<div class="success-container">
+<th:block th:replace="~{layout/header :: header}"></th:block>
+    <h1>정보수정 완료</h1>
+    <p th:text="${msg}"></p>
+    <a href="/">메인페이지로 이동하기</a>
+    <a href="/mypage">내 정보 보기</a>
+    <!-- Footer -->
+    <th:block th:replace="~{layout/footer :: footer}"></th:block>
+</div>
+</body>
+</html>

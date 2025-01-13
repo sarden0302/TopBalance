@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace ="com.topBalance.wishTree.mapper.WishTreeMapper">
+
+    <insert id="insertWish">
+        INSERT INTO WISHTREE(USER_ID,USER_WISH)                 <!--,WISH_DATE)-->
+        VALUES (#{userId}, #{userWish})
+    </insert>
+
+    <select id="getAllWishTree">
+        SELECT *
+        FROM wishtree
+        ORDER BY wish_date
+    </select>
+
+    <delete id="deleteRecentWishTree">
+        DELETE FROM wishtree
+        ORDER BY wish_date
+        LIMIT 1
+    </delete>
+
+    <select id="ifWishTreeExists">
+        SELECT *
+        FROM wishtree
+        WHERE user_id = #{userId}
+    </select>
+
+    <update id="updatingWishTree">
+        UPDATE wishtree
+        SET user_wish = #{userWish}, wish_date = NOW()
+        WHERE user_id = #{userId}
+    </update>
+    <!--
+        <insert id="insertWish">
+            INSERT INTO WISHTREE(USER_ID,USER_WISH,WISH_DATE)
+            VALUES (#{userId}, #{userWish}, #{wishDate})
+        </insert>
+
+
+    -->
+</mapper>

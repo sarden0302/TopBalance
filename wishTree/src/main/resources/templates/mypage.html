@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko" xml:th="http://www.thymeleaf.org">
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>WISHTREE - MYPAGE</title>
+    <link href="/css/styles.css" rel="stylesheet">
+    <script defer src="/js/script.js"></script>
+</head>
+<body>
+<!-- Main Content -->
+<div class="mypage-container">
+    <!-- Header -->
+    <th:block th:replace="~{layout/header :: header}"></th:block>
+    <h1>내 정보 보기</h1>
+    <div class="mypage-content">
+        <span>아이디 :  </span>
+        <span th:text="${user != null ? user.userId : '가입정보 없음'}"></span> <br>
+        <span>비밀번호 :  </span>
+        <span th:text="${user != null ? user.userPassword : '가입정보 없음'}"></span> <br>
+        <span>이름 :  </span>
+        <span th:text="${user != null ? user.userName : '가입정보 없음'}"></span> <br>
+        <span>핸드폰번호 :  </span>
+        <span th:text="${user != null ? user.userPhone : '가입정보 없음'}"></span> <br>
+        <span>생년월일 :  </span>
+        <span th:text="${user != null ? user.userBirthdate : '가입정보 없음'}"></span> <br>
+        <span>성별 :  </span>
+        <span th:text="${user != null ? user.userGender : '미정'}"></span> <br>
+        <span>랭킹 :  </span>
+        <span th:text="${user != null ? user.ranking : '등수 미정'}"></span> <br>
+        <span>최근 게임 한 날짜 :  </span>
+        <span th:text="${user != null ? user.gameDate : '기간내 진행한 게임 없음'}"></span> <br>
+
+        <a href="/update">수정하기</a>
+        <a href="/">메인으로 돌아가기</a>
+
+        <p style="color: blue;" th:if="${msg != null}" th:text="${msg}"></p>
+    </div>
+    <th:block th:replace="~{layout/footer :: footer}"></th:block>
+</div>
+<!-- Footer -->
+
+</body>
+</html>

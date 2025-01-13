@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko" xml:th="http://www.thymeleaf.org">
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>WISHTREE - FIND ID</title>
+    <link href="/css/styles.css" rel="stylesheet">
+    <script defer src="/js/script.js"></script>
+</head>
+<body>
+<!-- Main Content -->
+<div class="find-container">
+    <!-- Header -->
+    <th:block th:replace="~{layout/header :: header}"></th:block>
+    <div class="find-content">
+        <h1>아이디 확인 결과</h1>
+        <p th:text="${userId != null and !userId.isEmpty()
+                ? '입력하신 이름과 핸드폰번호와 생년월일을 확인한 결과 : ' + userId
+                :'조회된 회원이 없습니다.' }">
+        </p>
+        <br>
+        <a href="/">메인으로 돌아가기</a>
+    </div>
+    <!-- Footer -->
+    <th:block th:replace="~{layout/footer :: footer}"></th:block>
+</div>
+</body>
+</html>

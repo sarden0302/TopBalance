@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko" xml:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>WISHTREE - MAIN</title>
+    <link href="/css/styles.css" rel="stylesheet">
+    <script defer src="/js/script.js"></script>
+</head>
+<body>
+<div class="main-container">
+    <th:block th:replace="~{layout/header :: header}"></th:block>
+    <h1 class="maintext">오늘의 운세</h1>
+    <div class="title-area">
+    </div>
+
+    <div class="tree-area">
+        <div class="wishlist">
+            <div class="circle-container">
+                <div class="circle" th:each="w : ${wishs}">
+                    <div class="moving-text">
+                        <span th:text="${w.userWish}"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="ranklist">
+        <table>
+            <tr th:each="r : ${ranks}">
+                <td th:text="${r.totalScore + ' ' + r.userId}"></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="ui-button">
+        <a class="startgame" href="/balancegame">게임 시작하기</a>
+        <br><br>
+        <a class="gotobamboo" href="/bamboo">댓글로 이동</a>
+    </div>
+</div>
+
+</body>
+</html>
