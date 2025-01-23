@@ -47,6 +47,10 @@ public class BalanceGameController {
         if (loggedInUser != null) {
             model.addAttribute("loggedInUser", loggedInUser);
         }
+        for (List<BalanceQ> g : groupedQuestions.values()) {
+            System.out.println(g.toString());
+
+        }
     }
 
     /**
